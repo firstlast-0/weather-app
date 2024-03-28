@@ -6,3 +6,7 @@ body {
     font-family: 'Courier New', monospace;    
     text-align: center;
 }
+
+#main {
+    margin-top: 75px;
+}
