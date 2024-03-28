@@ -24,14 +24,33 @@ async function getWeather(place) {
 function processData(data) {
     let tempCel = data.current.temp_c;
     let tempFah = data.current.temp_f;
+    let condition = data.current.condition.text.toLowerCase();
     let location = data.location.name;
-    return { tempCel, tempFah, location };
+    return { tempCel, tempFah, condition, location };
 }
 
 let unit = 'Celsius';
 function displayData(data) {
+    let body = document.querySelector('body');
+    let con = document.querySelector('#con');
     let loc = document.querySelector('#loc');
     let temp = document.querySelector('#temp');
+    
+    if (data.condition.includes('rain')) {
+        body.style.backgroundColor = '#C5E2F7';
+        con.style.color = '#C5E2F7';
+    }
+    else if (data.condition.includes('cloud') || data.condition.includes('overcast')) {
+        body.style.backgroundColor = 'gray';
+        con.style.color = 'gray';
+    }
+    else if (data.condition.includes('sun')) {
+        body.style.backgroundColor = 'orange';
+        con.style.color = 'orange';
+    }
+    else body.style.backgroundColor = '#000';
+    
+    con.textContent = data.condition;
     loc.textContent = data.location;
 
     if (unit === 'Celsius') temp.textContent = data.tempCel;
