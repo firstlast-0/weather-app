@@ -15,10 +15,16 @@ body {
     background-color: rgb(30, 30, 30);
 }
 
-h3 {
+h2, h3 {
     display: inline;
 }
 
 span {
     font-size: 1.7rem;
+}
+
+#error {
+    display: block;
+    color: red;
+    font-size: 1rem;
 }
