@@ -24,9 +24,9 @@ function processData(data) {
     let condition = data.current.condition.text.toLowerCase();
     let day1 = data.forecast.forecastday['1'].day.condition.text.toLowerCase();
     let day2 = data.forecast.forecastday['2'].day.condition.text.toLowerCase();
-    let day3 = data.forecast.forecastday['3'].day.condition.text.toLowerCase();
+    // let day3 = data.forecast.forecastday['3'].day.condition.text.toLowerCase();
     let location = data.location.name;
-    return { tempCel, tempFah, condition, day1, day2, day3, location };
+    return { tempCel, tempFah, condition, day1, day2, location };
 }
 
 let unit = 'Celsius';
@@ -37,7 +37,7 @@ function displayData(data) {
     let temp = document.querySelector('#temp');
     let day1 = document.querySelector('#day1');
     let day2 = document.querySelector('#day2');
-    let day3 = document.querySelector('#day3');
+    // let day3 = document.querySelector('#day3');
     
     if (data.condition.includes('rain')) {
         body.style.backgroundColor = '#C5E2F7';
@@ -63,7 +63,7 @@ function displayData(data) {
 
     day1.textContent = data.day1;
     day2.textContent = data.day2;
-    day3.textContent = data.day3;
+    // day3.textContent = data.day3;
 }
 
 let go = document.querySelector('#go');
